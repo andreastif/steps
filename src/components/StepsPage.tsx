@@ -3,9 +3,19 @@ import { useState } from "react";
 const messages = ["Learn React ⚛️", "Apply for jobs 💼", "Invest your new income 🤑"];
 
 export const StepsPage = () => {
-  const step = 1;
-  const active = "bg-purple-500 text-white";
+  const [step, setStep] = useState(1);
 
+  const handlePrevious = () => {
+    console.log("Clicked previous");
+    setStep((prev) => (prev > 1 ? prev - 1 : 1));
+  };
+
+  const handleNext = () => {
+    console.log("Clicked next");
+    setStep((prev) => (prev < 3 ? prev + 1 : 3));
+  };
+
+  const active = "bg-purple-500 text-white";
   return (
     <div className="w-152 bg-gray-200 rounded py-6 px-28 my-28 mx-auto">
       <div className="flex justify-between">
@@ -36,10 +46,18 @@ export const StepsPage = () => {
         Step {step}: {messages[step - 1]}
       </p>
       <div className="flex justify-between">
-        <button className="btn w-24 rounded-full border-none text-white bg-purple-500 hover:bg-purple-400">
+        <button
+          className="btn w-24 rounded-full border-none text-white bg-purple-500 hover:bg-purple-400"
+          onClick={handlePrevious}
+        >
           Previous
         </button>
-        <button className="btn w-24 rounded-full border-none text-white bg-purple-500 hover:bg-purple-400">Next</button>
+        <button
+          className="btn w-24 rounded-full border-none text-white bg-purple-500 hover:bg-purple-400"
+          onClick={handleNext}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
