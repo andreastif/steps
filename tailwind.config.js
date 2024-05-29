@@ -5,6 +5,7 @@ export const theme = {
     fontFamily: {
       robot: ["Roboto Mono", "Roboto", "sans-serif"],
     },
+    spacing: { 152: "38rem" },
   },
 };
 
