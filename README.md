@@ -4,6 +4,6 @@ This project has been created as part of the Ultimate React Course by Jonas Schm
 
 ## Images
 
-### Mobile
-
-### Desktop
+![Counter Image 1](public/counter_image_1.png)
+![Counter Image 2](public/counter_image_2.png)
+![Counter Image 3](public/counter_image_3.png)
