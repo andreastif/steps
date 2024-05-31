@@ -10,7 +10,7 @@ The purpose of V1 is to make a basic component with props, state and some handle
 
 The purpose of v2 is instead to expand on the first version and also make use the children prop to render input from the user into a component.
 
-The project makes use of the new react-router-dom (6.4+) for some basic routing.
+The project makes use of react-router-dom for some basic routing.
 
 ## Images
 
