@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "./Button";
+import { Message } from "./Message";
 
 const messages = ["Learn React ⚛️", "Apply for jobs 💼", "Invest your new income 🤑"];
 
-export const StepsPage = () => {
+export const StepsPageTwo = () => {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
+  const navigate = useNavigate();
 
   const handlePrevious = () => {
     setStep((prev) => (prev > 1 ? prev - 1 : 1));
@@ -16,6 +20,10 @@ export const StepsPage = () => {
 
   const handleIsOpen = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  const handleGoToPrevPage = () => {
+    navigate("/");
   };
   const active = "bg-purple-500 text-white";
 
@@ -53,22 +61,39 @@ export const StepsPage = () => {
             </div>
           </div>
 
-          <p className="text-center text-lg my-10 mx-0 font-semibold flex flex-col items-center">
-            Step {step}: {messages[step - 1]}
-          </p>
-          <div className="flex justify-between">
-            <button
-              className="btn w-24 rounded-full border-none text-white bg-purple-500 hover:bg-purple-400"
+          <Message className="text-center text-lg my-10 mx-0 font-semibold flex flex-col items-center" step={step}>
+            <div className="my-3">{messages[step - 1]}</div>
+            <Button
+              className="btn btn-sm rounded-full border-none text-white bg-purple-500 hover:bg-purple-400"
+              onClick={() => {
+                alert("lorem ipsum");
+              }}
+            >
+              Learn how!
+            </Button>
+          </Message>
+
+          <div className="flex flex-row justify-center">
+            <Button
+              className="btn mx-auto w-24 rounded-full border-none text-white bg-purple-500 hover:bg-purple-400"
               onClick={handlePrevious}
             >
-              Previous
-            </button>
-            <button
-              className="btn w-24 rounded-full border-none text-white bg-purple-500 hover:bg-purple-400"
+              <span>👈</span> Prev
+            </Button>
+            <Button
+              className="btn mx-auto w-24 rounded-full border-none text-white bg-purple-500 hover:bg-purple-400"
               onClick={handleNext}
             >
-              Next
-            </button>
+              Next <span>👉</span>
+            </Button>
+          </div>
+          <div className="text-center mt-10">
+            <Button
+              className="btn btn-wide rounded-full border-none text-white bg-purple-500 hover:bg-purple-400"
+              onClick={() => handleGoToPrevPage()}
+            >
+              Go to previous page (v1)
+            </Button>
           </div>
         </div>
       )}
